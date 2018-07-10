@@ -11,6 +11,13 @@
 |
 */
 
+Route::get('/comments', 'CommentsController@index');
+Route::post('/comments/post', 'CommentsController@store');
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('comments');
+});
+
+Route::get('/test', function(){
+	return 'hi';
 });
