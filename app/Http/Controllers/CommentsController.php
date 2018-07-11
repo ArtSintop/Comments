@@ -16,9 +16,11 @@ class CommentsController extends Controller
 
     public function index()
     {
+        $maxLevel = 4;
+
     	$comments = Comment::all()->groupBy('parentId');
 
-    	return view('comments', ['comments' => $comments]);
+    	return view('comments', ['comments' => $comments, 'maxLevel' => $maxLevel]);
     }
 
     public function store(Request $request)
