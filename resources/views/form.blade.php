@@ -1,10 +1,11 @@
 <form method="POST" action="/comments/post">
 	{{ csrf_field() }}
-	Name:
-	<input type="text" name="name">
-	Comment :
-	<input type="text" name="comment"> </input>
-	<br>
+	<p class="allign-input">
+		Name:
+		<input type="text" name="name">
+		Comment :
+		<textarea name="comment"> </textarea>
+	</p>
 	@if(isset($parentId))
 		@if($level < $maxLevel)
 			<input type="hidden" name="parentId" value="{{ $parentId }}"> </input>
@@ -16,4 +17,6 @@
 	@else
 		<button type="submit">Add Comment</button>
 	@endif
+	<br>
+	<br>
 </form> 

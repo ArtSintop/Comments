@@ -16,9 +16,12 @@ class CommentsController extends Controller
 
     public function index()
     {
+        //Hard code max level, but can change to have custom inputs later
         $maxLevel = 4;
 
-    	$comments = Comment::all()->groupBy('parentId');
+        //Order comments by date
+    	$comments = Comment::orderBy('created_at')->get();
+        $comments = $comments->groupBy('parentId');
 
     	return view('comments', ['comments' => $comments, 'maxLevel' => $maxLevel]);
     }
