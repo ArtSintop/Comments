@@ -11,12 +11,14 @@
 |
 */
 
-Route::get('/comments', 'CommentsController@index');
+Route::get('/', 'CommentsController@index');
+route::get('/show', 'CommentsController@show');
 Route::post('/comments/post', 'CommentsController@store');
+Route::post('/comments/{id}/post', 'CommentsController@storeNested');
 
-Route::get('/', function () {
-    return view('comments');
-});
+// Route::get('/', function () {
+//     return view('comments');
+// });
 
 Route::get('/test', function(){
 	return 'hi';

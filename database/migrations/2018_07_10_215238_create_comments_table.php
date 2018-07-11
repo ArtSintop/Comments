@@ -17,6 +17,8 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('comment');
+            $table->string('parentId')->nullable();
+            $table->integer('level')->default(1);
             $table->timestamps();
         });
     }
