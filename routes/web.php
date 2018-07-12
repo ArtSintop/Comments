@@ -13,4 +13,4 @@
 
 Route::get('/', 'CommentsController@index');
 Route::get('/show', 'CommentsController@show');
-Route::get('/comments/post', 'CommentsController@store');
+Route::post('/comments/post', 'CommentsController@store');
