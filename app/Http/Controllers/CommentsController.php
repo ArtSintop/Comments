@@ -28,16 +28,23 @@ class CommentsController extends Controller
 
     public function store(Request $request)
     {
+        $maxLevel = 4;
+
     	//if level exists increase it by one otherwise it is a new comment
     	$level = isset($request->level) ? $request->level + 1 : 1;
 
-    	Comment::create([
-    		'name' => $request->name,
-    		'comment' =>  $request->comment,
-    		'parentId' => $request->parentId,
-    		'level' => $level
-    	]);
+        if(LevelVerifier::verifyLevelLimit($maxLevel, $level)){
+        	Comment::create([
+        		'name' => $request->name,
+        		'comment' =>  $request->comment,
+        		'parentId' => $request->parentId,
+        		'level' => $level
+        	]);
 
-    	return back();
+        	return back();            
+        } else {
+            throw \Exception('Maximum Level reached');
+        }
+
     }
 }
