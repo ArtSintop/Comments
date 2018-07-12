@@ -12,14 +12,5 @@
 */
 
 Route::get('/', 'CommentsController@index');
-route::get('/show', 'CommentsController@show');
-Route::post('/comments/post', 'CommentsController@store');
-Route::post('/comments/{id}/post', 'CommentsController@storeNested');
-
-// Route::get('/', function () {
-//     return view('comments');
-// });
-
-Route::get('/test', function(){
-	return 'hi';
-});
+Route::get('/show', 'CommentsController@show');
+Route::get('/comments/post', 'CommentsController@store');
