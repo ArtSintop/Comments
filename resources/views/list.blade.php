@@ -1,8 +1,8 @@
 <ul>
     @foreach ($series as $comment)
-    	<h4> {{ $comment->name }} </h4>
+    	<h4> User: {{ $comment->name }} </h4>
         <div class="body">
-    	   {{ $comment->comment }}
+    	   Comment: {{ $comment->comment }}
         </div>
     	@include('form', ['parentId' => $comment->id, 'level' => $comment->level])
 
